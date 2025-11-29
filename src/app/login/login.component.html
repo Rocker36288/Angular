@@ -1,0 +1,14 @@
+<p>{{title}}</p>
+<button (click)="test()">送出開關</button>
+<button [disabled]="flag">送出</button>
+<hr>
+
+<p>帳號:</p>
+<input type="text" [(ngModel)]="account" [placeholder]="accountPlaceholder">
+<p>輸入的帳號:{{account}}</p>
+<p>密碼:</p>
+<input type="text" [(ngModel)]="password" [placeholder]="passwordPlaceholder">
+<p>輸入的密碼:{{password}}</p>
+<br>
+<button (click)="login()">登入</button>
+<button (click)="autowrite()">自動填入</button>

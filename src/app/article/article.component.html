@@ -1,0 +1,45 @@
+<!-- <button (click)="test()">變大</button>
+<p [ngStyle]="{'font-size': fontSize +'px'}">文章</p>
+
+<p [ngClass]="{'Red': isRed}">關注</p> -->
+
+<button (click)="changePopular()">熱門文章</button>
+<button (click)="changeNormal()">一般文章</button>
+
+@if(isPopular)
+{
+<div>
+  <p>熱門文章列表</p>
+
+  <table border="1">
+    <tr>
+      <th>標題</th>
+      <th>內容</th>
+    </tr>
+    <tr>
+      <td>標題1</td>
+      <td>內容1</td>
+    </tr>
+  </table>
+</div>
+}
+@if(!isPopular)
+{
+<div>
+  <p>一般文章列表</p>
+
+  <table border="1">
+    <tr>
+      <th>標題</th>
+      <th>內容</th>
+    </tr>
+    <tr>
+      <td>標題2</td>
+      <td>內容2</td>
+    </tr>
+  </table>
+</div>
+}
+
+<br>
+<button>新增文章</button>

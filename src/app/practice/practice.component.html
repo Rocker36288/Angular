@@ -1,0 +1,12 @@
+{{title}}
+<p>帳號:</p>
+<input type="text" [(ngModel)]="account" [disabled]="isDisabled">
+<p>密碼:</p>
+<input type="text" [(ngModel)]="password">
+<br>
+<button (click)="submit()">送出</button>
+<button (click)="clear()">清除</button>
+<button (click)="change()">修改</button>
+<br>
+{{showAccount}}
+{{showPassword}}
