@@ -11,6 +11,7 @@ export class ArticleComponent {
   fontSize = 10;
   isRed = true;
   isPopular = true;
+  type = 1;
 
 
   test() {
@@ -20,8 +21,10 @@ export class ArticleComponent {
 
   changePopular() {
     this.isPopular = true;
+    this.type = 1;
   }
   changeNormal() {
     this.isPopular = false;
+    this.type = 2;
   }
 }

@@ -11,16 +11,25 @@ export class PracticeComponent {
   title = "新增";
   account = "";
   password = "";
-  showAccount = "帳號:";
-  showPassword = "密碼:";
+  showAccount = "";
+  showPassword = "";
+  showAlert = "";
   isDisabled = false;
   submit() {
-    if (!(this.account && this.password)) {
-      alert("請輸入完整!")
+    if (!(this.account) && !(this.password)) {
+      this.showAlert = "請輸入帳號跟密碼!";
       return;
     }
-    this.showAccount = `帳號:${this.account}`;
-    this.showPassword = `密碼:${this.password}`;
+    if (!(this.account)) {
+      this.showAlert = "請輸入帳號!";
+      return;
+    }
+    if (!(this.password)) {
+      this.showAlert = "請輸入密碼!";
+      return;
+    }
+    this.showAccount = this.account;
+    this.showPassword = this.password;
   }
   clear() {
     this.account = "";

@@ -3,10 +3,21 @@
 <input type="text" [(ngModel)]="account" [disabled]="isDisabled">
 <p>密碼:</p>
 <input type="text" [(ngModel)]="password">
+
+<br>
+{{showAlert}}
 <br>
 <button (click)="submit()">送出</button>
 <button (click)="clear()">清除</button>
 <button (click)="change()">修改</button>
 <br>
-{{showAccount}}
-{{showPassword}}
+<table>
+  <tr>
+    <th>帳號</th>
+    <th>密碼</th>
+  </tr>
+  <tr>
+    <td>{{showAccount}}</td>
+    <td>{{showPassword}}</td>
+  </tr>
+</table>

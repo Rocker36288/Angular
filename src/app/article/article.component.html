@@ -6,7 +6,7 @@
 <button (click)="changePopular()">熱門文章</button>
 <button (click)="changeNormal()">一般文章</button>
 
-@if(isPopular)
+@if(type ===1)
 {
 <div>
   <p>熱門文章列表</p>
@@ -23,7 +23,7 @@
   </table>
 </div>
 }
-@if(!isPopular)
+@if(type ===2)
 {
 <div>
   <p>一般文章列表</p>
