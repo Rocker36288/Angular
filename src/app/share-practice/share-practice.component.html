@@ -1,0 +1,13 @@
+<div>
+  <p style="color: red;">{{message}}</p>
+  <p>帳號 :</p>
+  <input [disabled]="isDisable" [(ngModel)]="user.account">
+  <br>
+  <p>密碼 :</p>
+  <input [(ngModel)]="user.password">
+  <br>
+  <br>
+  <button (click)="submit()">送出</button>
+  <button (click)="clear()">清除</button>
+  <button (click)="switch()">切換</button>
+</div>

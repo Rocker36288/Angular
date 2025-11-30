@@ -12,9 +12,12 @@ export class LoginComponent {
   title = "登入";
   accountPlaceholder = "請輸入帳號";
   passwordPlaceholder = "請輸入密碼";
-  account = "123";
+  account = "aa123";
   password = "";
   flag = true
+  inputUser = {
+    account: "aa123"
+  }
 
   send(para: any) {
     console.log(para);
@@ -25,5 +28,11 @@ export class LoginComponent {
   autowrite() {
     this.account = "account";
     this.password = "password";
+  }
+  test1() {
+    this.account = "456";
+    this.inputUser = {
+      account: "456"
+    }
   }
 }

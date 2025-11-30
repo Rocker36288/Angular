@@ -12,4 +12,5 @@
 <br>
 <button (click)="login()">登入</button>
 <button (click)="autowrite()">自動填入</button> -->
-<app-share-input [account]="account" (sendEmitter)="send($event)"></app-share-input>
+<app-share-input [account]="account" [inputUser]="inputUser" (sendEmitter)="send($event)"></app-share-input>
+<button (click)="test1()">test</button>

@@ -1,16 +1,17 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { SharePracticeComponent } from "../share-practice/share-practice.component";
 
 @Component({
   selector: 'app-practice',
-  imports: [FormsModule],
+  imports: [FormsModule, SharePracticeComponent],
   templateUrl: './practice.component.html',
   styleUrl: './practice.component.css'
 })
 export class PracticeComponent {
   /** 標題 */
   title = '新增';
-
+  message = "";
   status = "";
 
   /** 使用者資料 */
@@ -29,24 +30,18 @@ export class PracticeComponent {
   isDisable = false;
 
   /** 送出 */
-  submit() {
-    if (!(this.user.account) && !(this.user.password)) {
-      alert('必須輸入帳號跟密碼');
-      return;
-    }
-    if (!(this.user.account)) {
-      alert('必須輸入帳號');
-      return;
-    }
-    if (!(this.user.password)) {
-      alert('必須輸入密碼');
-      return;
-    }
+  submit(para: any) {
+    this.message = "";
+    // if (!(this.user.account && this.user.password)) {
+    //   this.message = "帳號跟密碼必須輸入完整";
+    //   return;
+    // }
 
     if (this.showUser.findIndex(x => x.account === this.user.account) != -1) {
-      this.status = "有重複帳號"
+      this.status = "有重複帳號";
     }
     else {
+      this.status = "";
       this.showUser.push(
         {
           account: this.user.account,

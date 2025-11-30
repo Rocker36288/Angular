@@ -1,5 +1,6 @@
 <h3>{{title}}</h3>
-<div>
+<!-- <div>
+  <p style="color: red;">{{message}}</p>
   <p>帳號 :</p>
   <input [disabled]="isDisable" [(ngModel)]="user.account">
   <br>
@@ -10,7 +11,8 @@
   <button (click)="submit()">送出</button>
   <button (click)="clear()">清除</button>
   <button (click)="switch()">切換</button>
-</div>
+</div> -->
+<app-share-practice (submitEmitter)="submit($event)"></app-share-practice>
 
 <br>
 <p style="color: red;">{{status}}</p>
