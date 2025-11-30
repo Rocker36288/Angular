@@ -1,23 +1,28 @@
-{{title}}
-<p>帳號:</p>
-<input type="text" [(ngModel)]="account" [disabled]="isDisabled">
-<p>密碼:</p>
-<input type="text" [(ngModel)]="password">
+<h3>{{title}}</h3>
+<div>
+  <p>帳號 :</p>
+  <input [disabled]="isDisable" [(ngModel)]="user.account">
+  <br>
+  <p>密碼 :</p>
+  <input [(ngModel)]="user.password">
+  <br>
+  <br>
+  <button (click)="submit()">送出</button>
+  <button (click)="clear()">清除</button>
+  <button (click)="switch()">切換</button>
+</div>
 
 <br>
-{{showAlert}}
-<br>
-<button (click)="submit()">送出</button>
-<button (click)="clear()">清除</button>
-<button (click)="change()">修改</button>
-<br>
+<p style="color: red;">{{status}}</p>
 <table>
   <tr>
     <th>帳號</th>
     <th>密碼</th>
   </tr>
+  @for(item of showUser;track $index){
   <tr>
-    <td>{{showAccount}}</td>
-    <td>{{showPassword}}</td>
+    <td>{{item.account}}</td>
+    <td>{{item.password}}</td>
   </tr>
+  }
 </table>

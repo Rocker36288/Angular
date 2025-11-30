@@ -16,10 +16,12 @@
       <th>標題</th>
       <th>內容</th>
     </tr>
+    @for(item of articles;track $index){
     <tr>
-      <td>標題1</td>
-      <td>內容1</td>
+      <td>{{item.title}}</td>
+      <td>{{item.content}}</td>
     </tr>
+    }
   </table>
 </div>
 }
@@ -42,4 +44,5 @@
 }
 
 <br>
-<button>新增文章</button>
+<button (click)="addArticle()">新增文章</button>
+<button (click)="clearArticle()">清除所有文章</button>
