@@ -23,13 +23,15 @@ export class SharePracticeComponent {
   submit() {
     const requiredError = this.userService.checkRequired(this.user.account, this.user.password)
     const lengthError = this.userService.checkLength(this.user.account, this.user.password)
-
-    this.message = requiredError
+    this.message = "";
+    if (requiredError) {
+      this.message = requiredError
+      return;
+    }
     if (lengthError) {
       alert(lengthError);
       return;
     }
-
 
     this.submitEmitter.emit();
   }

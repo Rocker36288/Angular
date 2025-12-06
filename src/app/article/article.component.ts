@@ -1,6 +1,7 @@
 import { NgClass, NgStyle } from '@angular/common';
-import { Component } from '@angular/core';
-import { Title } from '@angular/platform-browser';
+import { Component, OnInit } from '@angular/core';
+import { UserService } from '../user.service';
+import { Article } from '../interfaces/article';
 
 @Component({
   selector: 'app-article',
@@ -8,23 +9,22 @@ import { Title } from '@angular/platform-browser';
   templateUrl: './article.component.html',
   styleUrl: './article.component.css'
 })
-export class ArticleComponent {
+export class ArticleComponent implements OnInit {
   fontSize = 10;
   isRed = true;
   isPopular = true;
   type = 1;
 
-  articles = [
-    {
-      title: "標題1",
-      content: "內容1"
-    },
-    {
-      title: "標題2",
-      content: "內容2"
-    },
-  ]
+  articles: Article[] = []
 
+  constructor(private userService: UserService) { }
+
+  ngOnInit(): void {
+    this.userService.getArticleApi().subscribe((data) => {
+      this.articles = data;
+      console.log(data);
+    })
+  }
   test() {
     this.fontSize++;
     this.isRed = !this.isRed;

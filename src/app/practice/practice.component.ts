@@ -63,6 +63,5 @@ export class PracticeComponent {
   /** 切換新增/修改 */
   switch() {
     // this.isDisable = !this.isDisable;
-    // this.title = this.isDisable ? '修改' : '新增';
   }
 }

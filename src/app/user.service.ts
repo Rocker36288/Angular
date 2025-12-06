@@ -1,4 +1,8 @@
+import { appConfig } from './app.config';
 import { Injectable } from '@angular/core';
+import { ErrorMsgType } from './enums/errMsgType';
+import { HttpClient } from '@angular/common/http';
+import { Article } from './interfaces/article';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +15,7 @@ export class UserService {
 
 
 
-  constructor() { }
+  constructor(private httpClient: HttpClient) { }
 
   getUserData() {
     return this.inputUser;
@@ -36,6 +40,26 @@ export class UserService {
     return ""
   }
 
-
+  checkInput(input: string) {
+    if (input.length > 5) {
+      return {
+        isValid: false,
+        errMsg: ErrorMsgType.OverMax5
+      };
+    }
+    if (!input) {
+      return {
+        isValid: false,
+        errMsg: ErrorMsgType.Required
+      };
+    }
+    return {
+      isValid: true,
+      errMsg: ErrorMsgType.Pass
+    }
+  }
+  getArticleApi() {
+    return this.httpClient.get<Article[]>("https://localhost:7008/Article");
+  }
 }
 
