@@ -52,17 +52,17 @@ export class PracticeComponent {
   }
 
   /** 清除 */
-  clear() {
-    if (!this.isDisable) {
-      this.user.account = '';
-    }
-    this.user.password = '';
-    this.showUser = [];
+  clear(para: any) {
+    // if (!this.isDisable) {
+    //   this.user.account = '';
+    // }
+    // this.user.password = '';
+    // this.showUser = [];
   }
 
   /** 切換新增/修改 */
   switch() {
-    this.isDisable = !this.isDisable;
-    this.title = this.isDisable ? '修改' : '新增';
+    // this.isDisable = !this.isDisable;
+    // this.title = this.isDisable ? '修改' : '新增';
   }
 }

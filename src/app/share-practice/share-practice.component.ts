@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output, output, } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-share-practice',
@@ -8,8 +9,9 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './share-practice.component.css'
 })
 export class SharePracticeComponent {
+  constructor(private userService: UserService) { }
+  isDisable = false;
   @Input() message = "";
-  @Input() isDisable = false;
   @Input() user = {
     account: "",
     password: ""
@@ -17,12 +19,28 @@ export class SharePracticeComponent {
 
   @Output() submitEmitter = new EventEmitter();
   @Output() clearEmitter = new EventEmitter();
+
   submit() {
-    if (!(this.user.account && this.user.password)) {
-      this.message = "帳號跟密碼必須輸入完整";
+    const requiredError = this.userService.checkRequired(this.user.account, this.user.password)
+    const lengthError = this.userService.checkLength(this.user.account, this.user.password)
+
+    this.message = requiredError
+    if (lengthError) {
+      alert(lengthError);
       return;
     }
+
+
     this.submitEmitter.emit();
-  } clear() { }
-  switch() { }
+  }
+  clear() {
+    if (!this.isDisable) {
+      this.user.account = '';
+    }
+    this.user.password = '';
+    this.clearEmitter.emit();
+  }
+  switch() {
+    this.isDisable = !this.isDisable;
+  }
 }

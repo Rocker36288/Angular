@@ -12,7 +12,8 @@
   <button (click)="clear()">清除</button>
   <button (click)="switch()">切換</button>
 </div> -->
-<app-share-practice (submitEmitter)="submit($event)"></app-share-practice>
+<app-share-practice [user]="user" [message]="message" (submitEmitter)="submit($event)"
+  (clearEmitter)="clear($event)"></app-share-practice>
 
 <br>
 <p style="color: red;">{{status}}</p>
