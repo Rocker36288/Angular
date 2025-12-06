@@ -1,29 +1,54 @@
-import { NgClass, NgStyle } from '@angular/common';
+import { DatePipe, NgClass, NgStyle, UpperCasePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user.service';
 import { Article } from '../interfaces/article';
+import { ArticlePipe } from '../article.pipe';
 
 @Component({
   selector: 'app-article',
-  imports: [NgStyle, NgClass],
+  imports: [NgStyle, NgClass, UpperCasePipe, DatePipe, ArticlePipe],
   templateUrl: './article.component.html',
   styleUrl: './article.component.css'
 })
 export class ArticleComponent implements OnInit {
-  fontSize = 10;
+  fontSize = 20;
   isRed = true;
   isPopular = true;
   type = 1;
 
-  articles: Article[] = []
+  articles: Article[] = [
+    {
+      title: "標題1",
+      content: "內容1"
+    },
+    {
+      title: "標題2",
+      content: "內容2"
+    },
+  ]
+  nowDate = new Date()
 
   constructor(private userService: UserService) { }
 
   ngOnInit(): void {
-    this.userService.getArticleApi().subscribe((data) => {
-      this.articles = data;
-      console.log(data);
-    })
+    // console.log(1);
+
+    // this.userService.getArticleApi().subscribe((data) => {
+    //   this.articles = data;
+    //   console.log(2);
+    // })
+
+    // console.log(3);
+
+    // let para = {
+    //   title: "",
+    //   content: ""
+    // }
+    // this.userService.postArticleApi(para).subscribe((data) => {
+    //   this.articles = data;
+    //   console.log(4);
+    // })
+    // console.log(5);
   }
   test() {
     this.fontSize++;

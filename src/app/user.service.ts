@@ -61,5 +61,8 @@ export class UserService {
   getArticleApi() {
     return this.httpClient.get<Article[]>("https://localhost:7008/Article");
   }
+  postArticleApi(para: Article) {
+    return this.httpClient.post<Article[]>("https://localhost:7008/Article", para);
+  }
 }
 

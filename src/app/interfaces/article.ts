@@ -1,4 +1,4 @@
 export interface Article {
-  title: String,
-  content: String,
+  title: string,
+  content: string,
 }

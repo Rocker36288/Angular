@@ -3,6 +3,12 @@
 
 <p [ngClass]="{'Red': isRed}">關注</p> -->
 
+<p [ngStyle]="{'font-size': fontSize +'px'}">{{'article' | uppercase }}</p>
+<p [ngStyle]="{'font-size': fontSize +'px'}">{{ nowDate }}</p>
+<p [ngStyle]="{'font-size': fontSize +'px'}">{{ nowDate | date }}</p> <!-- ts檔中 新增nowDate = new Date() -->
+<p [ngStyle]="{'font-size': fontSize +'px'}">{{ nowDate | date : 'shortDate' }}</p>
+<p [ngStyle]="{'font-size': fontSize +'px'}">{{ nowDate | date : 'fullDate' }}</p>
+
 <button (click)="changePopular()">熱門文章</button>
 <button (click)="changeNormal()">一般文章</button>
 
@@ -19,7 +25,7 @@
     @for(item of articles;track $index){
     <tr>
       <td>{{item.title}}</td>
-      <td>{{item.content}}</td>
+      <td>{{item.content |article}}</td>
     </tr>
     }
   </table>
