@@ -46,9 +46,13 @@ export class SharePracticeComponent {
   }
   clear() {
     if (!this.isDisable) {
-      this.user.account = '';
+      this.form.patchValue({
+        account: ""
+      });
     }
-    this.user.password = '';
+    this.form.patchValue({
+      password: ""
+    });
     this.clearEmitter.emit();
   }
   switch() {

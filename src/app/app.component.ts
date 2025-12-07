@@ -22,4 +22,7 @@ export class AppComponent {
   goToSignup() {
     this.router.navigate(["signup"]);
   }
+  goToSignupId() {
+    this.router.navigate(["signup/456"]);
+  }
 }

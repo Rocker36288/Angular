@@ -1,6 +1,7 @@
 import { JsonPipe } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormArray, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-sign-up',
@@ -22,6 +23,19 @@ export class SignUpComponent {
       new FormControl("地址3"),
     ])
   })
+
+  constructor(private activatedRoute: ActivatedRoute) {
+    console.log(this.activatedRoute.snapshot.params["id"]);
+    console.log(this.activatedRoute.snapshot.paramMap.get("id"));
+    //...api
+
+    this.activatedRoute.params.subscribe((params) => {
+      console.log(params["id"]);
+    });
+    this.activatedRoute.paramMap.subscribe((paramMap) => {
+      console.log(paramMap.get("id"));
+    });
+  }
 
   defaultData: any;
 
