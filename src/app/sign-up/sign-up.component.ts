@@ -48,7 +48,8 @@ export class SignUpComponent {
   }
 
   addAddress() {
-    this.getAddress().push(new FormControl("789"))
+    // this.getAddress().push(new FormControl("789"))
+    (this.form.get("address") as FormArray).push(new FormControl("789"))
   }
 
   submit() {
