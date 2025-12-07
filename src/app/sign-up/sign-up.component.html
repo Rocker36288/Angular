@@ -1,6 +1,12 @@
 <form [formGroup]="form">
   <p>帳號 :</p>
   <input formControlName="account">
+  @if(form.get("account")?.hasError("required")){
+  <p style="color: red;">必填</p>
+  }
+  @if(form.get("account")?.hasError("maxlength")){
+  <p style="color: red;">長度>5</p>
+  }
   <p>密碼 :</p>
   <input formControlName="password">
 
@@ -14,7 +20,7 @@
 
   <br>
 
-  <span>地址</span><button>新增地址</button>
+  <span>地址</span><button (click)="addAddress()">新增地址</button>
   <div formArrayName="address">
     @for (item of getAddress(); track $index) {
     <div>
@@ -26,3 +32,6 @@
   <button (click)="submit()">送出</button>
   <button (click)="reset()">重置</button>
 </form>
+
+<p>invalid:{{form.invalid}}</p>
+<p>errors:{{form.get("account")?.errors |json}}</p>

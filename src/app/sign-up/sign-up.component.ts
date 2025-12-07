@@ -1,15 +1,16 @@
+import { JsonPipe } from '@angular/common';
 import { Component } from '@angular/core';
-import { FormArray, FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormArray, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-sign-up',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, JsonPipe],
   templateUrl: './sign-up.component.html',
   styleUrl: './sign-up.component.css'
 })
 export class SignUpComponent {
   form = new FormGroup({
-    account: new FormControl("2025"),
+    account: new FormControl("2025", [Validators.required, Validators.maxLength(5)]),
     password: new FormControl("1207"),
     info: new FormGroup({
       age: new FormControl(26),
@@ -46,8 +47,13 @@ export class SignUpComponent {
     return (this.form.get("address") as FormArray).controls
   }
 
+  addAddress() {
+    this.getAddress().push(new FormControl("789"))
+  }
+
   submit() {
     console.log(this.form.value);
+    console.log(this.form.getRawValue());
   }
 
   reset() {
