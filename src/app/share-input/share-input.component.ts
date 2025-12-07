@@ -29,8 +29,8 @@ export class ShareInputComponent {
   // }
 
   ngOnInit() {
-    console.log('ngOnInit');
-    alert("廣告訊息")
+    // console.log('ngOnInit');
+    // alert("廣告訊息")
   }
 
   ngOnChanges(change: SimpleChanges) {

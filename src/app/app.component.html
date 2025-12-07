@@ -1,4 +1,13 @@
 <!-- <app-login></app-login> -->
-<app-practice></app-practice>
+<!-- <app-practice></app-practice> -->
 <!-- <app-article></app-article> -->
 <!-- <app-sign-up></app-sign-up> -->
+
+<a routerLink="login">login</a>&nbsp;
+<a routerLink="signup">signup</a>&nbsp;
+<a routerLink="practice">practice</a>&nbsp;
+
+<button (click)="goToLogin()">goToLogin</button>
+<button (click)="goToSignup()">goToSignup</button>
+
+<router-outlet></router-outlet>
