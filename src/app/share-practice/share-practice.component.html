@@ -1,10 +1,10 @@
 <div>
   <p style="color: red;">{{message}}</p>
   <p>帳號 :</p>
-  <input [disabled]="isDisable" [(ngModel)]="user.account">
+  <input [disabled]="isDisable" formControlName="account">
   <br>
   <p>密碼 :</p>
-  <input [(ngModel)]="user.password">
+  <input formControlName="password">
   <br>
   <br>
   <button (click)="submit()">送出</button>

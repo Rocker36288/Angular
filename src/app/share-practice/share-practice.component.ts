@@ -1,10 +1,10 @@
-import { Component, EventEmitter, Input, Output, output, } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { Component, EventEmitter, Input, Output, output, SimpleChanges, } from '@angular/core';
+import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-share-practice',
-  imports: [FormsModule],
+  imports: [FormsModule, ReactiveFormsModule],
   templateUrl: './share-practice.component.html',
   styleUrl: './share-practice.component.css'
 })
@@ -16,6 +16,15 @@ export class SharePracticeComponent {
     account: "",
     password: ""
   };
+
+  form = new FormGroup({
+    account: new FormControl("132"),
+    password: new FormControl("132"),
+  })
+
+  ngOnChanges(changes: SimpleChanges): void {
+    this.form.patchValue(changes["user"].currentValue);
+  }
 
   @Output() submitEmitter = new EventEmitter();
   @Output() clearEmitter = new EventEmitter();
