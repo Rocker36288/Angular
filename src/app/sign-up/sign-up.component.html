@@ -1,7 +1,7 @@
 <form [formGroup]="form">
   <p>帳號 :</p>
   <input formControlName="account">
-  @if(form.get("account")?.hasError("required")){
+  @if(form.get("account")?.touched && form.get("account")?.hasError("required")){
   <p style="color: red;">必填</p>
   }
   @if(form.get("account")?.hasError("maxlength")){
@@ -35,3 +35,5 @@
 
 <p>invalid:{{form.invalid}}</p>
 <p>errors:{{form.get("account")?.errors |json}}</p>
+<p>dirty:{{form.get("account")?.dirty}}</p>
+<p>touched:{{form.get("account")?.touched}}</p>

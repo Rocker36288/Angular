@@ -10,7 +10,7 @@ import { FormArray, FormControl, FormGroup, ReactiveFormsModule, Validators } fr
 })
 export class SignUpComponent {
   form = new FormGroup({
-    account: new FormControl("2025", [Validators.required, Validators.maxLength(5)]),
+    account: new FormControl("", [Validators.required, Validators.maxLength(5)]),
     password: new FormControl("1207"),
     info: new FormGroup({
       age: new FormControl(26),
@@ -56,6 +56,9 @@ export class SignUpComponent {
   }
 
   submit() {
+    // this.form.markAsTouched();
+    this.form.get("account")?.markAsTouched();
+
     console.log(this.form.value);           //抓不到disabled的欄位
     console.log(this.form.getRawValue());   //可以抓到disabled的欄位
   }
