@@ -48,13 +48,16 @@ export class SignUpComponent {
   }
 
   addAddress() {
-    // this.getAddress().push(new FormControl("789"))
+    // this.getAddress().push(new FormControl("789"));
+    // this.form.get("address")?.updateValueAndValidity();
+    // //強制 Angular 重建 value、errors、status
+
     (this.form.get("address") as FormArray).push(new FormControl("789"))
   }
 
   submit() {
-    console.log(this.form.value);
-    console.log(this.form.getRawValue());
+    console.log(this.form.value);           //抓不到disabled的欄位
+    console.log(this.form.getRawValue());   //可以抓到disabled的欄位
   }
 
   reset() {
