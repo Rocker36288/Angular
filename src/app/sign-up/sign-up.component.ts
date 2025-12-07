@@ -22,11 +22,35 @@ export class SignUpComponent {
     ])
   })
 
+  defaultData: any;
+
+  ngOnInit(): void {
+    this.defaultData = this.form.value;
+
+    // this.form.get("account")?.valueChanges.subscribe((data) => {
+    //   console.log(data);
+    // })
+
+    // this.form.patchValue({
+    //   //更新form部分資料
+    //   account: "123",
+    //   password: "456",
+    // })
+
+    // this.form.setValue({
+    //...設定form所有的資料
+    // })
+  }
+
   getAddress() {
     return (this.form.get("address") as FormArray).controls
   }
 
   submit() {
     console.log(this.form.value);
+  }
+
+  reset() {
+    this.form.reset(this.defaultData);
   }
 }
