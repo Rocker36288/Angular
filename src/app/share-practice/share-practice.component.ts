@@ -57,5 +57,10 @@ export class SharePracticeComponent {
   }
   switch() {
     this.isDisable = !this.isDisable;
+    if (this.isDisable) {
+      this.form.get("account")?.disable();
+    } else {
+      this.form.get("account")?.enable();
+    }
   }
 }
