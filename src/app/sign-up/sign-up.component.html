@@ -1,0 +1,27 @@
+<form [formGroup]="form">
+  <p>帳號 :</p>
+  <input formControlName="account">
+  <p>密碼 :</p>
+  <input formControlName="password">
+
+  <div formGroupName="info">
+    <p>個人資訊 :</p>
+    <p>年齡</p>
+    <input formControlName="age">
+    <p>身高</p>
+    <input formControlName="tall">
+  </div>
+
+  <br>
+
+  <span>地址</span><button>新增地址</button>
+  <div formArrayName="address">
+    @for (item of getAddress(); track $index) {
+    <div>
+      <input [formControlName]="$index">
+    </div>
+    }
+  </div>
+
+  <button (click)="submit()">送出</button>
+</form>
