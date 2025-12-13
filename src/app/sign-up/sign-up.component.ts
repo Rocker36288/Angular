@@ -35,6 +35,16 @@ export class SignUpComponent {
     this.activatedRoute.paramMap.subscribe((paramMap) => {
       console.log(paramMap.get("id"));
     });
+
+    console.log(this.activatedRoute.snapshot.queryParams);
+    console.log(this.activatedRoute.snapshot.queryParamMap);
+
+    this.activatedRoute.params.subscribe((params) => {
+      console.log(params["account"]);
+    });
+    this.activatedRoute.paramMap.subscribe((paramMap) => {
+      console.log(paramMap.get("account"));
+    });
   }
 
   defaultData: any;

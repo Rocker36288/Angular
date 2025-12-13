@@ -25,4 +25,12 @@ export class AppComponent {
   goToSignupId() {
     this.router.navigate(["signup/456"]);
   }
+  goToSignupQuery() {
+    this.router.navigate(["signup"], {
+      queryParams: {
+        account: "333",
+        password: "444",
+      }
+    });
+  }
 }
