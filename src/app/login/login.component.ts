@@ -2,10 +2,11 @@ import { UserService } from './../user.service';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ShareInputComponent } from "../share-input/share-input.component";
+import { ButtonModule } from 'primeng/button';
 
 @Component({
   selector: 'app-login',
-  imports: [FormsModule, ShareInputComponent],
+  imports: [FormsModule, ShareInputComponent, ButtonModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
